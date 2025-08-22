@@ -15,12 +15,10 @@ while True:
 
 
     if opcao == "1":
-        print("Opção de cadastro selecionada.")
         nome = input("Digite o nome do produto: ")
         produtos.append(nome)
         print("Produto cadastrado!\n")
     elif opcao == "2":
-        print("Opção de listagem selecionada.")
         print("Produtos cadastrados:")
         for p in produtos:
             print("-", p)

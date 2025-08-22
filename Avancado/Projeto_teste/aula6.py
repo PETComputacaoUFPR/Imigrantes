@@ -5,7 +5,7 @@
 produtos = []
 
 while True:
-    print("=== Sistema de Controle de Estoque ===")
+    print("\n=== Sistema de Controle de Estoque ===")
     print("1 - Cadastrar produto")
     print("2 - Listar produtos")
     print("3 - Vender produto")
@@ -15,20 +15,29 @@ while True:
 
 
     if opcao == "1":
-        print("Opção de cadastro selecionada.")
-        nome = input("Digite o nome do produto: ")
-        produtos.append(nome)
+        print("\n=== Cadastro de Produto ===")
+        nome = input("Nome: ")
+        preco = float(input("Preço: "))
+        quantidade = int(input("Quantidade em estoque: "))
+
+        produto = {"nome": nome, "preco": preco, "quantidade": quantidade}
+        produtos.append(produto)
+
         print("Produto cadastrado!\n")
+
     elif opcao == "2":
-        print("Opção de listagem selecionada.")
-        print("Produtos cadastrados:")
-        for p in produtos:
-            print("-", p)
-            print("\n")
+        print("\n=== Lista de Produtos ===")
+        if len(produtos) == 0:
+            print("Não há produtos cadastrados.\n")
+        else:
+            for p in produtos:  
+                print(f"{p['nome']} - R${p['preco']:.2f} - Estoque: {p['quantidade']}")
+
     elif opcao == "3":
-        print("Opção de venda selecionada.")
+        print("\nOpção de venda selecionada.")
+
     elif opcao == "4":
-        print("Saindo do sistema...\n")
+        print("\nSaindo do sistema...\n")
         break
     else:
         print("Opção inválida!")
